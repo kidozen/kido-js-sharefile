@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Kidozen Sharefile Sample</title>        
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="/css/jquery.mobile.css" />
+        <script src="/js/lib/jquery.js"></script>
+        <script src="/js/lib/jquery.mobile.js"></script>
+        <script src="/js/lib/jquery.timeago.js"></script>
+
+    </head>
+    <body data-ajax="false">
+        
+        <div id="login" data-role="page">
+
+            <div data-role="header">
+                <h1>Login</h1>
+            </div>
+
+            <div data-role="content">
+
+                <p><strong>Sharefile Credentials</strong></p>
+                <div data-role="fieldcontain">
+                    <label for="user">Username:</label>
+                    <input id="user" name="name" value=""/>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="pass">Password:</label>
+                    <input id="pass" name="pass" type="password" value=""/>
+                </div>
+
+                <div data-role="controlgroup" data-type="vertical">
+                    <a data-role="button" id="accept-login">Sign In</a>
+                    <a data-role="button" id="guest-login">Guest</a>
+                    <a data-role="button" data-rel="back">Cancel</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="main" data-role="page">
+            <div data-role="header">
+                <h1>Sharefile Sample</h1>
+            </div>
+            <div data-role="content">
+
+                <h2 id="folder-path"></h2>
+                <ul id="files-list" data-role="listview" data-inset="true" data-filter="true">
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed">        
+                <div data-role="navbar">
+                    <ul>
+                        <li><a data-icon="home" href="#main">Browse</a></li>
+                        <li><a data-icon="star" href="#recently">Recently</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+        </div>
+
+        <div id="recently" data-role="page">
+            <div data-role="header">
+                <h1>Recently Viewed</h1>
+            </div>
+            <div data-role="content">
+                <ul class="recently-list" data-role="listview" data-inset="true" data-filter="true">
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed">        
+                <div data-role="navbar">
+                    <ul>
+                        <li><a data-icon="home" href="#main">Browse</a></li>
+                        <li><a data-icon="star" href="#recently">Recently</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+            </div><!-- /footer -->
+        </div>
+
+        <div id="file-details-dlg" data-role="page">
+
+            <div data-role="header">
+                <h1 class="">File Details</h1>
+            </div>
+
+            <div data-role="content">
+
+                <div data-role="fieldcontain">
+                    <label>File Name:</label>
+                    <span class="file-details-name"></span>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label>Size:</label>
+                    <span class="file-details-size"></span>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label>Creator:</label>
+                    <span class="file-details-creator"></span>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label>Created:</label>
+                    <span class="file-details-created"></span>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label>Send by Email:</label>
+                    <input class="file-details-email" type="text" value="" placeholder="someone@your-company.com"/>
+                    <a data-role="button" class="file-details-send">Send</a>    
+                </div>
+
+                <input type="hidden" class="file-details-id" />
+                <a data-role="button" class="file-details-download" data-inline="true" data-theme="b">Download</a>
+                <a data-role="button" data-rel="back" data-inline="true">Done</a>
+            </div>
+        </div>
+
+        <!-- KIDOZEN SDK -->
+        <script src="/js/lib/kido-0.1.2.js"></script>
+        <script type="text/javascript" src="/js/model.js"></script>
+        <script type="text/javascript" src="/js/view.js"></script>
+        <script type="text/javascript" src="/js/controller.js"></script>
+        <script type="text/javascript" src="/js/app.js"></script>
+
+    </body>
+</html>
+    
