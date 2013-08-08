@@ -68,7 +68,7 @@ var model = {
             .done(function ( result ) {
                 //replace the default service with the ones that uses
                 //the custom credentials.
-                model.sharefile = kido.services('sharefile').defaults({ authid: result.authid });
+                model.sharefile = kido.services('sharefile').defaults({ authid: result.auth });
                 model.credentials = credentials;
             })
             .fail(function (err) {
