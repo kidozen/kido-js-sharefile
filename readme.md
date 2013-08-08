@@ -1,4 +1,4 @@
-##Kidozen Tasks Management sample application
+##Kidozen HTML5 ShareFile File Browser sample
 
 The purpose of this app is show how you might create an application using
 the ShareFile Enterprise API shipped with KidoZen.
