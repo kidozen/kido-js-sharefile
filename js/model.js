@@ -59,12 +59,12 @@ var model = {
     login: function ( credentials ) {
         //basic valiadtions
         var invalidCredentials = $.Deferred().rejectWith('Invalid credentials, login again.');
-        if (!credentials) return invalidCredentials;
+        if (!credentials) credentials = {};
         if (!credentials.username || !credentials.password) return invalidCredentials;
 
         return kido
             .services('sharefile')
-            .invoke('getAuthID', credentials)
+            .invoke('authenticate', credentials)
             .done(function ( result ) {
                 //replace the default service with the ones that uses
                 //the custom credentials.

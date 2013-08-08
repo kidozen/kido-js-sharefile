@@ -19,8 +19,6 @@ KidoZen Enterprise APIs in order to operate on the files. Anything can be done
 with the files stored in ShareFile, download it, associate it to something else
 and even send emails with download links.
 
-- User can use the default credentials configured in the KidoZen Application
-Center.
 - User can log in with his own ShareFile credentials.
 - The home screen displays a list files and folders for that account.
 - Folders can be navigated by tapping on the folder rows.
