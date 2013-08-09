@@ -5,17 +5,30 @@
         <meta charset="utf-8" />
         <title>Kidozen Sharefile Sample</title>        
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
-        <link rel="stylesheet" href="/css/jquery.mobile.css" />
+        <!-- FontAwesome - http://fortawesome.github.io/Font-Awesome/ -->
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+        <!-- jQueryMobileCSS - original without styling -->
+        <link rel="stylesheet" href="css/jquerymobile.css" />
+
+        <!-- nativeDroid core CSS -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.css" />
+
+        <!-- nativeDroid: Light/Dark -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.dark.css"  id='jQMnDTheme' />
+
+        <!-- nativeDroid: Color Schemes -->
+        <link rel="stylesheet" href="css/jquerymobile.nativedroid.color.green.css" id='jQMnDColor' />
+
         <script src="/js/lib/jquery.js"></script>
         <script src="/js/lib/jquery.mobile.js"></script>
         <script src="/js/lib/jquery.timeago.js"></script>
 
     </head>
-    <body data-ajax="false">
-        
-        <div id="login" data-role="page">
+    <body>
+        <div id="login" data-role="page" data-theme='b'>
 
-            <div data-role="header">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
                 <h1>Login</h1>
             </div>
 
@@ -31,26 +44,27 @@
                     <input id="pass" name="pass" type="password" value=""/>
                 </div>
 
-                <div data-role="controlgroup" data-type="vertical">
-                    <a data-role="button" id="accept-login">Sign In</a>
-                </div>
+                <form>
+                    <button data-role="button" id="accept-login" data-theme='b'>Sign In</button>
+                </form>
+
             </div>
         </div>
 
-        <div id="main" data-role="page">
+        <div id="main" data-role="page" data-theme='b'>
 
-            <div data-role="header">
+            <div data-role="header" data-theme='b'>
                 <h1>Sharefile Sample</h1>
             </div>
 
             <div data-role="content">
 
                 <h2 id="folder-path"></h2>
-                <ul id="files-list" data-role="listview" data-inset="true" data-filter="true">
+                <ul id="files-list" data-role="listview" data-inset="false" data-filter="true" data-divider-theme="b">
                 </ul>
             </div>
 
-            <div data-role="footer" data-position="fixed">        
+            <div data-position="fixed" data-tap-toggle="false" data-role="footer" data-tap-toggle="false" data-theme='b'>
                 <div data-role="navbar">
                     <ul>
                         <li><a data-icon="home" href="#main">Browse</a></li>
@@ -60,15 +74,15 @@
             </div><!-- /footer -->
         </div>
 
-        <div id="recently" data-role="page">
-            <div data-role="header">
+        <div id="recently" data-role="page" data-theme='b'>
+            <div data-role="header" data-theme='b'>
                 <h1>Recently Viewed</h1>
             </div>
             <div data-role="content">
                 <ul class="recently-list" data-role="listview" data-inset="true" data-filter="true">
                 </ul>
             </div>
-            <div data-role="footer" data-position="fixed">        
+            <div data-position="fixed" data-tap-toggle="false" data-role="footer" data-tap-toggle="false" data-theme='b'>
                 <div data-role="navbar">
                     <ul>
                         <li><a data-icon="home" href="#main">Browse</a></li>
@@ -78,43 +92,54 @@
             </div><!-- /footer -->
         </div>
 
-        <div id="file-details-dlg" data-role="page">
+        <div id="file-details-dlg" data-role="page" data-theme='b'>
 
-            <div data-role="header">
+            <div data-role="header" data-theme='b'>
                 <h1 class="">File Details</h1>
             </div>
 
             <div data-role="content">
 
-                <div data-role="fieldcontain">
-                    <label>File Name:</label>
-                    <span class="file-details-name"></span>
-                </div>
-
-                <div data-role="fieldcontain">
-                    <label>Size:</label>
-                    <span class="file-details-size"></span>
-                </div>
-
-                <div data-role="fieldcontain">
-                    <label>Creator:</label>
-                    <span class="file-details-creator"></span>
-                </div>
-
-                <div data-role="fieldcontain">
-                    <label>Created:</label>
-                    <span class="file-details-created"></span>
-                </div>
-
-                <div data-role="fieldcontain">
-                    <label>Send by Email:</label>
-                    <input class="file-details-email" type="text" value="" placeholder="someone@your-company.com"/>
-                    <a data-role="button" class="file-details-send">Send</a>    
-                </div>
+                <table>
+                  <tr>
+                   <td>File Name:</td>
+                   <td class="file-details-name"></td>
+                  </tr>
+                  <tr>
+                    <td>Size:</td>
+                    <td class="file-details-size"></td>
+                  </tr>
+                  <tr>
+                    <td>Creator:</td>
+                    <td class="file-details-creator"></td>
+                  </tr>
+                  <tr>
+                    <td>Created:</td>
+                    <td class="file-details-created"></td>
+                  </tr>
+                  <tr>
+                    <td>Send by Email: </td>
+                    <td>
+                        <input class="file-details-email" type="text" value="" placeholder="someone@your-company.com"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td><td><a data-role="button" class="file-details-send">Send</a></td>
+                  </tr>
+                </table>
 
                 <input type="hidden" class="file-details-id" />
-                <a data-role="button" class="file-details-download" data-inline="true" data-theme="b">Download</a>
-                <a data-role="button" data-rel="back" data-inline="true">Done</a>
+                <form>
+                    <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <a data-role="button" class="file-details-download" data-theme="b">Download</a>
+                            </div>
+                            <div class="ui-block-b">
+                                <a data-role="button" data-rel="back">Done</a>
+                            </div>
+                    </fieldset>
+                </form>
+            </div>
             </div>
         </div>
 
